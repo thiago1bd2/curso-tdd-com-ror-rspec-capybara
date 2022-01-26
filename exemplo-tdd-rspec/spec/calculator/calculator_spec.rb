@@ -5,25 +5,30 @@ require 'ffaker'
 
 describe Calculator do
   describe '.sum' do
-    context 'positive number only' do
-      let(:positive_number_one) { FFaker::Random.rand(0..99) }
-      let(:positive_number_two) { FFaker::Random.rand(0..99) }
-      let(:big_negative_number) { FFaker::Random.rand(-999..-99) }
-      let(:negative_number_one) { FFaker::Random.rand(-99..-1) }
+    let(:positive_number) { FFaker::Random.rand(0..99) }
+    let(:big_positive_number) { FFaker::Random.rand(99..999) }
+    let(:negative_number) { FFaker::Random.rand(-99..-1) }
+    let(:big_negative_number) { FFaker::Random.rand(-999..-99) }
 
-      it 'result fo the sum' do
-        result = Calculator.new.sum(positive_number_one, positive_number_two)
-        expect(result).to eq(positive_number_one + positive_number_two)
+    context 'positive numbers only' do
+      it 'a positive result' do
+        expect(Calculator.new.sum(positive_number, big_positive_number)).to eq(positive_number + big_positive_number)
+      end
+    end
+
+    context 'at least one negative number' do
+      it 'a positive result' do
+        expect(Calculator.new.sum(negative_number, big_positive_number)).to eq(negative_number + big_positive_number)
       end
 
-      context 'at least one negative number' do
-        it 'a negative result' do
-          result = Calculator.new.sum(big_negative_number, positive_number_one)
-          expect(result).to eq(big_negative_number + positive_number_one)
-        end
+      it 'a negative result' do
+        expect(Calculator.new.sum(negative_number, big_negative_number)).to eq(negative_number + big_negative_number)
+      end
+    end
 
-        it 'a positive result' do
-        end
+    context 'negative numbers only' do
+      it 'a negative result' do
+        expect(Calculator.new.sum(negative_number, big_negative_number)).to eq(negative_number + big_negative_number)
       end
     end
   end
