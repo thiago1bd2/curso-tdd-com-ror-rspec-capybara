@@ -6,8 +6,8 @@ require:
 AllCops:
   NewCops: enable
 
-Metrics/BlockLength:
-  Max: 50
+# Metrics/BlockLength:
+  # Max: 25
 
 FilePath:
   SpecSuffixOnly: enable

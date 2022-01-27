@@ -1,4 +1,11 @@
-RSpec.describe 'True or False Matchers' do
+# frozen_string_literal: true
+
+require 'ffaker'
+
+RSpec.describe Object, '#true_false_matchers' do
+  let(:positive_number) { FFaker::Random.rand(1..9) }
+  let(:negative_number) { FFaker::Random.rand(1..9) * -1 }
+
   it 'be true' do
     expect(1.odd?).to be true
   end
@@ -10,21 +17,17 @@ RSpec.describe 'True or False Matchers' do
   it 'be_truthy' do
     # not nil and true
     a = true
-    expect(a).to be_truthy 
-    expect(a).not_to be_falsey
+    expect(a).to be_truthy
   end
 
   it 'be_falsey' do
     # not nil and false
     a = false
-    expect(a).to be_falsey
     expect(a).not_to be_truthy
   end
 
   it 'be_nil' do
     a = nil
     expect(a).to be_nil
-    expect(a).not_to be_truthy
-    expect(a).to be_falsey
   end
 end
