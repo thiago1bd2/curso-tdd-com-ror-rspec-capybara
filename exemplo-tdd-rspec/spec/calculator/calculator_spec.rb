@@ -3,32 +3,32 @@
 require 'calculator'
 require 'ffaker'
 
-RSpec.describe Calculator, 'only sum' do
+RSpec.describe Calculator do
   describe '#sum' do
+    subject(:calc) { described_class.new }
+
     let(:positive_number) { FFaker::Random.rand(0..99) }
     let(:big_positive_number) { FFaker::Random.rand(99..999) }
     let(:negative_number) { FFaker::Random.rand(-99..-1) }
     let(:big_negative_number) { FFaker::Random.rand(-999..-99) }
 
-    subject(:calc) { described_class.new }
-
-    context 'positive numbers only' do
+    context 'when positive numbers only' do
       it 'a positive result' do
         expect(calc.sum(positive_number, big_positive_number)).to eq(positive_number + big_positive_number)
       end
     end
 
-    context 'at least one negative number' do
+    context 'when at least one negative number' do
       it 'a positive result' do
         expect(calc.sum(negative_number, big_positive_number)).to eq(negative_number + big_positive_number)
       end
 
-      it 'a negative result' do
+      it 'when a negative result' do
         expect(calc.sum(negative_number, big_negative_number)).to eq(negative_number + big_negative_number)
       end
     end
 
-    context 'negative numbers only' do
+    context 'when negative numbers only' do
       it 'a negative result' do
         expect(calc.sum(negative_number, big_negative_number)).to eq(negative_number + big_negative_number)
       end
