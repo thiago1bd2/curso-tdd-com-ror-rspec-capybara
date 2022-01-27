@@ -1,9 +1,9 @@
-RSpec.describe 'Comparison Matchers' do
+# frozen_string_literal: true
+
+RSpec.describe Object, '#equality_matchers' do
   it '#equal - obj comparison' do
     x = 'ruby'
-    y = 'ruby'
 
-    expect(x).not_to equal(y)
     expect(x).to equal(x)
   end
 
@@ -11,8 +11,7 @@ RSpec.describe 'Comparison Matchers' do
     x = 'ruby'
     y = 'ruby'
 
-    expect(x).not_to be(y)
-    expect(x).to be(x)
+    expect(x).to be(y)
   end
 
   it '#eql - value comparison' do
@@ -20,6 +19,5 @@ RSpec.describe 'Comparison Matchers' do
     y = 'ruby'
 
     expect(x).to eql(y)
-    expect(x).to eql(x)
   end
 end

@@ -1,0 +1,13 @@
+require: 
+  # - rubocop-performance
+  # - rubocop-rails
+  - rubocop-rspec # or rubocop-minitest
+
+AllCops:
+  NewCops: enable
+
+Metrics/BlockLength:
+  Max: 50
+
+FilePath:
+  SpecSuffixOnly: enable
