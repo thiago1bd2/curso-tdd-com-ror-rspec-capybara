@@ -20,6 +20,24 @@ require_relative './helpers/my_random'
 
 RSpec.configure do |config|
   config.include Helper
+
+  # config.before(:suite) do
+  #   puts '>>>>>> BEFORE SUIT config'
+  # end
+
+  # config.after(:suite) do
+  #   puts '>>>>>> AFTER SUIT config'
+  # end
+
+  # config.before(:all) do
+  #   puts '>>>>>> BEFORE ALL TESTS config'
+  # end
+
+  # config.after(:all) do
+  #   puts '>>>>>> AFTER ALL TESTS config'
+  # end
+
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
