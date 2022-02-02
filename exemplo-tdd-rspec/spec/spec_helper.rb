@@ -37,6 +37,10 @@ RSpec.configure do |config|
   #   puts '>>>>>> AFTER ALL TESTS config'
   # end
 
+  # Enabling the failure aggregation globally
+  # config.define_derived_metada do |meta|
+  #   meta[:aggregate_failures] = true
+  # end
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
