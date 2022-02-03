@@ -7,4 +7,12 @@ class Student
   def finished?(course)
     # true or false
   end
+
+  def foo(*args)
+    # something...
+  end
+
+  def bar
+    # something ...
+  end
 end
