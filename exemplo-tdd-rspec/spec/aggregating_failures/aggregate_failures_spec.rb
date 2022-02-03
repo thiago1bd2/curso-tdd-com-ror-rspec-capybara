@@ -6,7 +6,7 @@
 # check the spec_helper file
 
 RSpec.describe Object, '#aggregate_failures' do
-  it do
+  xit do
     aggregate_failures do
       a = b = 2
       expect(a).to be > b
@@ -14,8 +14,8 @@ RSpec.describe Object, '#aggregate_failures' do
     end
   end
 
-  it 'aggregating failures', :aggregate_failures do
+  xit 'aggregating failures', :aggregate_failures do
     a = [2, 4, 6]
-    expect(a).to all(satisfy('br odd number', &:odd?))
+    expect(a).to all(satisfy('be odd number', &:odd?))
   end
 end
