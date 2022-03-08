@@ -35,8 +35,8 @@ RSpec.describe Student, '#mock' do
       end
     end
 
-    expect(student).to receive(:foo).with(/barr/).and_return('Foo!').once
+    expect(student).to receive(:foo).with(/barr/).and_return('Fijijijijioo!').once
 
-    student.foo(:barr)
+    p student.foo(:barr)
   end
 end

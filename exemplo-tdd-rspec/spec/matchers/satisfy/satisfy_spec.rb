@@ -9,7 +9,7 @@ RSpec.describe Object, '#satisfy' do
       end
     }
 
-    it { expect(9).to satisfy('multiple of 3') { |n| n % 3 == 0 } }
+    it { expect(9).to satisfy('multiple of 3') { |n| (n % 3).zero? } }
 
     it {
       n = 2
