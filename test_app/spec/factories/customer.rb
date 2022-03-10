@@ -7,7 +7,8 @@ FactoryBot.define do
     end
 
     name { Faker::Name.name }
-    email { Faker::Internet.email }
+    # email { Faker::Internet.email }
+    sequence(:email) { |n| "meu_email#{n}@email.com" }
 
     trait :vip do
       vip { true }

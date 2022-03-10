@@ -34,4 +34,14 @@ RSpec.describe Customer, type: :model do
   end
 
   it { expect { create(:customer) }.to change { Customer.all.size }.by(1) }
+
+  it '#mail' do
+    c1 = create(:customer_default)
+    # p c1.email
+
+    # c2 = create(:customer_default)
+    # p c2.email
+
+    expect(c1.email).not_to be nil?
+  end
 end
