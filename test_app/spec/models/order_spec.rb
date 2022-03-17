@@ -13,8 +13,8 @@ RSpec.describe Order, type: :model do
 
   it '#has_many' do
     customer = create(:customer, :with_orders)
-    p customer.inspect
-    p customer.orders.inspect
+    # p customer.inspect
+    # p customer.orders.inspect
     expect(customer.orders.count).to eq 3
   end
 end
