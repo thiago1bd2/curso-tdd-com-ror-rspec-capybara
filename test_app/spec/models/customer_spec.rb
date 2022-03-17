@@ -44,4 +44,16 @@ RSpec.describe Customer, type: :model do
 
     expect(c1.email).not_to be nil?
   end
+
+  it '#travel_to - female default' do
+    travel_to Time.zone.local(2021, 3, 15, 15, 54, 12) do
+      @c = create(:customer_vip)
+    end
+
+    puts "created_at #{@c.created_at}"
+    puts "time now #{Time.now}"
+    puts Time.new(2021, 3, 15, 15, 54, 12, 'UTC').to_s
+
+    expect(@c.created_at).to eq(Time.new(2021, 3, 15, 15, 54, 12, 'UTC'))
+  end
 end
