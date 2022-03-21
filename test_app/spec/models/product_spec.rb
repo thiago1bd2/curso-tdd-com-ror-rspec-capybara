@@ -26,7 +26,7 @@ RSpec.describe Product, type: :model do
     it 'is invalid without category' do
       p = build(:product, category: nil)
       expect(p).not_to be_valid
-    end    
+    end
   end
 
   context 'with shoulda-matchers' do

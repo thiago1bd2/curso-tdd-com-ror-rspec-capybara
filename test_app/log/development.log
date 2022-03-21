@@ -408,3 +408,95 @@ FOREIGN KEY ("category_id")
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "a20c355e74a7f670bca8f43c5f245d1204f987df"], ["created_at", "2022-03-18 13:46:10.881707"], ["updated_at", "2022-03-18 13:46:10.881707"]]
   [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2022-03-18 14:00:12 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/monitora/.rvm/gems/ruby-3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/monitora/.rvm/gems/ruby-3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | Allocations: 634)
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 5707)
+
+
+Started GET "/index" for 127.0.0.1 at 2022-03-18 14:00:17 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+Started GET "/customers" for 127.0.0.1 at 2022-03-18 14:00:24 -0300
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:6
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1042)
+  Rendered layout layouts/application.html.erb (Duration: 189.8ms | Allocations: 99765)
+Completed 200 OK in 198ms (Views: 191.3ms | ActiveRecord: 0.2ms | Allocations: 103340)
+
+
+Started GET "/customers/1" for 127.0.0.1 at 2022-03-18 14:00:28 -0300
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/customers_controller.rb:63:in `set_customer'
+Completed 404 Not Found in 5ms (ActiveRecord: 0.9ms | Allocations: 3499)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Customer with 'id'=1):
+  
+app/controllers/customers_controller.rb:63:in `set_customer'
+Started GET "/" for ::1 at 2022-03-18 14:39:24 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/monitora/.rvm/gems/ruby-3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/monitora/.rvm/gems/ruby-3.0.0/gems/railties-7.0.2.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 634)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 5707)
+
+
+Started GET "/customers" for ::1 at 2022-03-18 14:39:30 -0300
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:6
+  Rendered customers/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1248)
+  Rendered layout layouts/application.html.erb (Duration: 54.0ms | Allocations: 34595)
+Completed 200 OK in 61ms (Views: 55.7ms | ActiveRecord: 0.2ms | Allocations: 38218)
+
+
+Started GET "/customers/new" for ::1 at 2022-03-18 14:39:32 -0300
+Processing by CustomersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/new.html.erb within layouts/application
+  Rendered customers/_form.html.erb (Duration: 306.1ms | Allocations: 339827)
+  Rendered customers/new.html.erb within layouts/application (Duration: 307.9ms | Allocations: 340150)
+  Rendered layout layouts/application.html.erb (Duration: 312.3ms | Allocations: 342216)
+Completed 200 OK in 335ms (Views: 313.3ms | ActiveRecord: 0.9ms | Allocations: 348445)
+
+
+Started POST "/customers" for ::1 at 2022-03-18 14:39:42 -0300
+Processing by CustomersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "customer"=>{"name"=>"thiago", "email"=>"a@a.com"}, "commit"=>"Create Customer"}
+  Rendering layout layouts/application.html.erb
+  Rendering customers/new.html.erb within layouts/application
+  Rendered customers/_form.html.erb (Duration: 1.7ms | Allocations: 1192)
+  Rendered customers/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1285)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3327)
+Completed 422 Unprocessable Entity in 6ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 4876)
+
+
+Started GET "/customers" for ::1 at 2022-03-18 14:39:52 -0300
+Processing by CustomersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering customers/index.html.erb within layouts/application
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  ↳ app/views/customers/index.html.erb:6
+  Rendered customers/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 804)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 2866)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.1ms | Allocations: 3200)
+
+
+Started GET "/customer/2" for ::1 at 2022-03-18 14:39:58 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/customer/2"):
+  
